@@ -5,9 +5,9 @@
 </head>
 <body>
 
-<h2>This is welcome page....</h2>
+    <h2>This is welcome page....</h2>
 
-<p>${greeting}</p>
+    <p>${greeting}</p>
 
 </body>
 </html>
