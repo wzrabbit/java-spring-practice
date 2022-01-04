@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- CruD 구현 부분. Sql 명령어와 동일 -->
+<mapper namespace="com.wzrabbit.mapper.BoardMapper">
+
+	<insert id="create">
+		insert into board (title, content) values (#{title}, #{content});
+	</insert>
+	
+	<select id="read" resultType="com.wzrabbit.domain.BoardVO">
+		select * from board (title, content) values (#{title}, #{content});
+	</select>
+	
+	<update id="update">
+		update board set title = #{title}, content = (#{content}) where id = #{id};
+	</update>
+	
+	<delete id="delete">
+		delete from board where id = #{id};
+	</delete>
+	
+	<select id="listAll" resultType="com.wzrabbit.domain.BoardVO">
+		select * from board where id > 0 order by id desc, date_ desc;
+	</select>
+
+</mapper>
