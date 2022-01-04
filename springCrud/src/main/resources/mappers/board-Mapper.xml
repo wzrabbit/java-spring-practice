@@ -13,11 +13,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<select id="read" resultType="com.wzrabbit.domain.BoardVO">
-		select * from board (title, content) values (#{title}, #{content});
+		select * from board where id =#{id};
 	</select>
 	
 	<update id="update">
-		update board set title = #{title}, content = (#{content}) where id = #{id};
+		update board set title =#{title} where id =#{id};
 	</update>
 	
 	<delete id="delete">
@@ -25,7 +25,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<select id="listAll" resultType="com.wzrabbit.domain.BoardVO">
-		select * from board where id > 0 order by id desc, date_ desc;
+		<![CDATA[
+			select * from board where id > 0 order by id desc, date_ desc;
+		]]>
 	</select>
 
 </mapper>

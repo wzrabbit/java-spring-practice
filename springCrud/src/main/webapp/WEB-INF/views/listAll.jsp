@@ -18,7 +18,7 @@
 
 </head>
 
-<form action = "regist" method = "get">
+<form action = "write" method = "get">
 
 <body>
 
@@ -38,21 +38,9 @@
 
         </td>
 
-        <td width="197">
-
-            <p align="center">작성자</p>
-
-        </td>
-
         <td width="155">
 
             <p align="center">작성일</p>
-
-        </td>
-
-        <td width="90">
-
-            <p align="center">조회수</p>
 
         </td>
 
@@ -64,17 +52,13 @@
 
 	<tr>
 
-        <td>${boardVO.bno}</td>
+        <td>${boardVO.id}</td>
 
-        <td><a href='/read?bno=${boardVO.bno}'>${boardVO.title}</a></td>
-
-        <td>${boardVO.writer}</td>
+        <td><a href='/read?id=${boardVO.id}'>${boardVO.title}</a></td>
 
         <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 
-				value="${boardVO.regdate}" /></td>
-
-        <td><span class="badge bg-red">${boardVO.viewcnt}</span></td>
+				value="${boardVO.date_}" /></td>
 
 	</tr>
 
@@ -82,7 +66,7 @@
 
     </table>
 
-     <button type ="submit">글쓰기</button>
+    <button type ="submit">글쓰기</button>
 
    </body>
 

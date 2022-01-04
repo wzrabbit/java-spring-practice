@@ -17,7 +17,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public void create(BoardVO data) throws Exception {
-		session.insert(namespace + "create", data);
+		session.insert(namespace + ".create", data);
 	}
 
 	@Override

@@ -7,7 +7,7 @@ public interface BoardService {
 	
 	public void write(BoardVO board) throws Exception;
 	public BoardVO read(Integer id) throws Exception;
-	public void modify(BoardVO board) throws Exception;
+	public void update(BoardVO board) throws Exception;
 	public void remove(Integer id) throws Exception;
 	public List<BoardVO> listAll() throws Exception;
 	
