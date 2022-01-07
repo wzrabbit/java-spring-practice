@@ -22,7 +22,7 @@
 
     <body>
 
-    <p><label>글번호</label> <input type="text" name ="bno" value ="${boardVO.id}" readonly="readonly"></p>
+    <p><label>글번호</label> <input type="text" name ="id" value ="${boardVO.id}" readonly="readonly"></p>
     <p><label>제목</label ><input type="text" name ="title" value ="${boardVO.title}" ></p>
     <label>내용</label>
 
