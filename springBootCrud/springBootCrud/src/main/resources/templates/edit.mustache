@@ -1,0 +1,26 @@
+{{>header}}
+
+<div class="container">
+    <h2>글 수정</h2>
+    {{#article}}
+        <form action="/edit/upload" method="post">
+            <input type="hidden" name="id" value="{{id}}" />
+            <label>
+                <p>작성자</p>
+                <input class="form-author" name="author" type="text" value="{{author}}" readonly required/>
+            </label>
+            <label>
+                <p>제목</p>
+                <input class="form-title" name="title" type="text" value="{{title}}" required/>
+            </label>
+            <label>
+                <p>내용</p>
+                <textarea name="content" cols="70" rows="10" required>{{content}}</textarea>
+            </label>
+            <br />
+            <button class="edit-button" type="submit">♠ 글수정</button>
+        </form>
+    {{/article}}
+</div>
+
+{{>footer}}

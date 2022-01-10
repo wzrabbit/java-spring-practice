@@ -9,6 +9,9 @@
             </span>
         </h2>
         <p>{{content}}</p>
+        <div class="space-div"></div>
+        <button class="edit-button" type="button" onclick="location.href='/edit/{{id}}'">♠ 글수정</button>
+        <button class="delete-button" type="button" onclick="confirm('정말로 게시글을 삭제하시겠습니까?\n삭제한 후에는 되돌릴 수 없습니다.') ? location.href='/delete/{{id}}':null;">◆ 글삭제</button>
     {{/article}}
 </div>
 

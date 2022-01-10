@@ -2,17 +2,21 @@
 
 <div class="container">
     <h2>글 쓰기</h2>
-    <form action="write/upload" method="post">
-        <p>작성자</p>
-        <input name="author" type="text" width="150px" />
-        <p>제목</p>
-        <input name="title" type="text" width="300px" />
-        <p>내용</p>
+    <form action="/write/upload" method="post">
         <label>
-            <textarea name="content" cols="70" rows="10"></textarea>
+            <p>작성자</p>
+            <input name="author" type="text" required/>
+        </label>
+        <label>
+            <p>제목</p>
+            <input name="title" type="text" required/>
+        </label>
+        <label>
+            <p>내용</p>
+            <textarea name="content" cols="70" rows="10" required></textarea>
         </label>
         <br />
-        <button type="submit">글 쓰기!</button>
+        <button class="write-button" type="submit">♣ 글쓰기</button>
     </form>
 </div>
 

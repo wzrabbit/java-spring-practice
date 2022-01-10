@@ -1,0 +1,14 @@
+{{>header}}
+    <div class="container">
+        <button class="write-button right" type="button" onclick="location.href='/write'">♣ 글쓰기</button>
+        {{#articleList}}
+
+        <div class="article-box" onclick="location.href='view/{{id}}'">
+            <span class="title">{{title}}
+                <span class="author">@{{author}}</span>
+            </span>
+        </div>
+
+        {{/articleList}}
+    </div>
+{{>footer}}

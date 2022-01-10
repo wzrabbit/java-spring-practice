@@ -22,6 +22,14 @@ public class MainController {
     @Autowired
     private ArticleRepository articleRepository;
 
+    @GetMapping("/")
+    public String showArticleList(Model model) {
+        List<Article> articleEntityList = articleRepository.findAll();
+        Collections.reverse(articleEntityList);
+        model.addAttribute("articleList", articleEntityList);
+        return "main";
+    }
+
     @GetMapping("/write")
     public String displayWritePage() {
         return "write";
@@ -45,11 +53,32 @@ public class MainController {
         return "view";
     }
 
-    @GetMapping("/")
-    public String showArticleList(Model model) {
-        List<Article> articleEntityList = articleRepository.findAll();
-        Collections.reverse(articleEntityList);
-        model.addAttribute("articleList", articleEntityList);
-        return "main";
+    @GetMapping("/edit/{id}")
+    public String editArticle(@PathVariable Long id, Model model) {
+        Article articleEntity = articleRepository.findById(id).orElse(null);
+        model.addAttribute("article", articleEntity);
+
+        return "edit";
+    }
+
+    @PostMapping("/edit/upload")
+    public String updateArticle(ArticleForm form) {
+        Article article = form.toEntity();
+        Article load = articleRepository.findById(article.getId()).orElse(null);
+        if (load == null) {
+            return "redirect:/";
+        }
+        Article saved = articleRepository.save(article);
+        log.info("게시글 수정: " + saved.toString());
+        return "redirect:/view/" + saved.getId();
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        Article load = articleRepository.findById(id).orElse(null);
+        if (load != null) {
+            articleRepository.delete(load);
+        }
+        return "redirect:/";
     }
 }
