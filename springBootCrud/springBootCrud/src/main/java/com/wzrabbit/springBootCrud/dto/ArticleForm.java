@@ -1,10 +1,14 @@
-package com.wzrabbit.springBootCrud.controller.dto;
+package com.wzrabbit.springBootCrud.dto;
+
+import com.wzrabbit.springBootCrud.entity.Article;
 
 public class ArticleForm {
+    private final String author;
     private final String title;
     private final String content;
 
-    public ArticleForm(String title, String content) {
+    public ArticleForm(String author, String title, String content) {
+        this.author = author;
         this.title = title;
         this.content = content;
     }
@@ -12,8 +16,13 @@ public class ArticleForm {
     @Override
     public String toString() {
         return "ArticleForm{" +
-                "title='" + title + '\'' +
+                "author='" + author + '\'' +
+                ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 '}';
+    }
+
+    public Article toEntity() {
+        return new Article(null, author, title, content);
     }
 }
