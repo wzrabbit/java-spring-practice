@@ -1,11 +1,17 @@
 package com.wzrabbit.springBootCrud.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.*;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@ToString
 public class Article {
     @Id
     @GeneratedValue
@@ -18,24 +24,6 @@ public class Article {
     private String title;
 
     @Column
+    @Lob
     private String content;
-
-    public Article(Long id, String author, String title, String content) {
-        this.id = id;
-        this.author = author;
-        this.title = title;
-        this.content = content;
-    }
-
-    public Article() {}
-
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id=" + id +
-                ", author='" + author + '\'' +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                '}';
-    }
 }
